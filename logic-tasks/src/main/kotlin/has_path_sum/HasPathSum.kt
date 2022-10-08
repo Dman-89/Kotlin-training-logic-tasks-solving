@@ -29,12 +29,12 @@ class HasPathSum {
         fun hasPathSum(root: TreeNode?, targetSum: Int): Boolean {
             if (root?.`val` == targetSum && root.left == null && root.right == null) return true
             return (if (root?.left != null) {
-                root.left?.`val` = root.left?.`val`?.plus(root.`val`)!!
+                root.left?.apply { `val` += root.`val` }
                 if (root.left?.`val` == targetSum && root.left == null && root.right == null) return true
                 hasPathSum(root.left, targetSum)
             } else false)
                 .or(if (root?.right != null) {
-                    root.right?.`val` = root.right?.`val`?.plus(root.`val`)!!
+                    root.right?.apply { `val` += root.`val` }
                     if (root.right?.`val` == targetSum && root.left == null && root.right == null) return true
                     hasPathSum(root.right, targetSum)
             } else false)
