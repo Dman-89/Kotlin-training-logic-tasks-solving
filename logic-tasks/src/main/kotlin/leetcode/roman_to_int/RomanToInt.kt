@@ -1,7 +1,7 @@
-package roman_to_int
+package leetcode.roman_to_int
 
 //https://leetcode.com/problems/roman-to-integer/
-fun main(args: Array<String>) {
+fun main() {
     RomanToInt.romanToInt0("III")
 }
 

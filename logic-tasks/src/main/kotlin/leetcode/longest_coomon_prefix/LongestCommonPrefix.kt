@@ -1,10 +1,9 @@
-package longest_coomon_prefix
+package leetcode.longest_coomon_prefix
 
 import java.lang.StringBuilder
-import java.util.Collections.min
 
 //https://leetcode.com/problems/longest-common-prefix/
-fun main(args: Array<String>) {
+fun main() {
     LongestCommonPrefix.longestCommonPrefix(arrayOf("flower","flow","flight"))
 }
 
@@ -16,9 +15,9 @@ class LongestCommonPrefix {
                 return ""
             if (strs.size == 1)
                 return strs[0]
-            val res: StringBuilder = StringBuilder()
+            val res = StringBuilder()
             var minLen = strs[0].length
-            var minIdx: Int = 0
+            var minIdx = 0
             strs.forEachIndexed{ idx, str ->
                 if(str.length < minLen) {
                     minLen = str.length

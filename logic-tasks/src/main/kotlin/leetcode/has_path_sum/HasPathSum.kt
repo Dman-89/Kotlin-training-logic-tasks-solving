@@ -1,4 +1,4 @@
-package has_path_sum
+package leetcode.has_path_sum
 
 //https://leetcode.com/problems/path-sum/
 fun main() {

@@ -1,9 +1,9 @@
-package guess_the_word
+package leetcode.guess_the_word
 
 import kotlin.random.Random
 
 //https://leetcode.com/problems/guess-the-word/
-fun main(args: Array<String>) {
+fun main() {
 //    GuessTheWord.findSecretWord(arrayOf(
 //        "acckzz","ccbazz","eiowzz","abcczz",
 //        "bcckzz","cdbazz","ziowzz","axcvbq"), MasterImpl("axcvbq"))
