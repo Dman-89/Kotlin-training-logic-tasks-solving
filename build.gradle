@@ -10,8 +10,17 @@ repositories {
     mavenCentral()
 }
 
+// needed for InjectNumberAnnotationBeanPostProcessor to call super.postProcessBeforeInitialization(bean, beanName)
+compileKotlin {
+    kotlinOptions { jvmTarget = 11 }
+    sourceCompatibility = 11
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'org.springframework.boot:spring-boot-starter:2.1.15.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-aop', version: '2.5.6'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
