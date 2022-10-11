@@ -4,7 +4,10 @@ import java.lang.StringBuilder
 
 //https://www.codewars.com/kata/56f3a1e899b386da78000732
 fun main() {
+    //[[cdIw, tzIy xDu rThG], [cdIw tzIy, xDu rThG], [cdIw tzIy xDu, rThG]]
     PartsOfAList.partlist(arrayOf("cdIw", "tzIy", "xDu", "rThG")).forEach { println(it.contentToString()) }
+    // [["az", "toto picaro zone kiwi"], ["az toto", "picaro zone kiwi"], ["az toto picaro", "zone kiwi"], ["az toto picaro zone", "kiwi"]]
+    PartsOfAList.partlist(arrayOf("az", "toto", "picaro", "zone", "kiwi")).forEach { println(it.contentToString()) }
 }
 
 class PartsOfAList {
