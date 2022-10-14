@@ -38,6 +38,8 @@ class MasterImpl(val secretWord: String, val totalGuesses: Int): Master { //, va
 
 class GuessTheWord {
     companion object {
+        //Runtime: 198 ms
+        //Memory Usage: 33.8 MB beats 75.93 % of kotlin submissions.
         fun findSecretWord(words: Array<String>, master: Master) {
             var guessCount = 0
             val wordListMutable = words.toMutableList()
