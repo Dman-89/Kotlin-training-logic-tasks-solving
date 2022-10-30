@@ -1,5 +1,5 @@
 package annotations_processing
 
 interface Counter {
-    fun count()
+    fun count(message: String? = null)
 }

@@ -1,2 +1,3 @@
 counter:
   start: 1
+  profilingEnabled: true

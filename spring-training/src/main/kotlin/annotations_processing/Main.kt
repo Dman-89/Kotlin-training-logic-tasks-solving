@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 fun main() {
     val context = SpringApplication.run(Main::class.java)
     val counter = context.getBean(Counter::class.java)
-    counter.count()
+    println("main.count()")
+    counter.count() // with profiling
+    println("main ended")
 }
 
 @SpringBootApplication

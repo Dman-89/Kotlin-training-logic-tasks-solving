@@ -16,6 +16,7 @@ class InjectNumberAnnotationBeanPostProcessor : BeanPostProcessor {
         //        return super.postProcessBeforeInitialization(bean, beanName)
         val fields = bean::class.declaredMemberProperties
         if (bean !is Counter) return bean
+        println("constructor phase 1")
         fields.filterIsInstance<KMutableProperty<*>>().forEach { field ->
             val injectNumber = field.findAnnotation<InjectNumber>()
             println("${bean.javaClass} has declaredFields: $fields")
@@ -27,6 +28,7 @@ class InjectNumberAnnotationBeanPostProcessor : BeanPostProcessor {
         return bean
     }
 
+    //second approach
 //    if (bean::class.java == CounterImpl::class.java) {
 //        val fields = bean.javaClass.declaredFields
 //        fields.forEach {
@@ -39,4 +41,6 @@ class InjectNumberAnnotationBeanPostProcessor : BeanPostProcessor {
 //        }
 //    }
 //    return bean
+
+
 }
