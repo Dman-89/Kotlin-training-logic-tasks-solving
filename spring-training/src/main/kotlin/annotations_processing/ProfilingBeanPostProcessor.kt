@@ -23,19 +23,16 @@ class ProfilingBeanPostProcessor(@Value("\${counter.profilingEnabled}") var prof
         val clazz = profilingBeansMap[beanName]
         if (clazz != null) {
             println("методы бина $beanName: " + bean.javaClass.declaredMethods[0].name)
-            val proxy = Proxy.newProxyInstance(clazz.classLoader, clazz.interfaces,
+            return Proxy.newProxyInstance(clazz.classLoader, clazz.interfaces,
                 InvocationHandler { proxy, method, args ->
-                    {
-                        println("Профилирую")
-                        val start = System.nanoTime()
-                        val retVal = method.invoke(bean, args)
-                        println("Время работы метода: ${System.nanoTime() - start}")
-                        println("Завершение профилирования")
-                        retVal //??? why return not available
-                    }
+                    println("Профилирую")
+                    val start = System.nanoTime()
+                    val retVal = method.invoke(bean, args)
+                    println("Время работы метода: ${System.nanoTime() - start}")
+                    println("Завершение профилирования")
+                    return@InvocationHandler retVal
                 }
             )
-            return proxy
         }
         return super.postProcessBeforeInitialization(bean, beanName)
     }
