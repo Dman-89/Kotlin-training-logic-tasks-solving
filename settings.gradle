@@ -1,3 +1,6 @@
 rootProject.name = 'kotlin_training'
 include 'logic-tasks'
 include 'spring-training'
+include 'kafka-producer-training'
+include 'kafka-consumer-training'
+
