@@ -56,6 +56,10 @@ public class AddStringNumbersVector {
         assertEquals("4715A", addStringNumbers("12BAC", "345AE", NumSys36.HEX));
         assertEquals("4726A", addStringNumbers("12BAC", "345AD", NumSys36.FIFTEEN));
         assertEquals("133264", addStringNumbers("98675", "34589", NumSys36.DECIMAL));
+        //leading zeros in number
+        assertEquals("2376857526280088", addStringNumbers("641705337", "002376856884574751", NumSys36.DECIMAL));
+        assertEquals("10367", addStringNumbers("9567", "800", NumSys36.DECIMAL));
+        assertEquals("81128108776873238361041931655", addStringNumbers("81128108776873238361041628545", "303110", NumSys36.DECIMAL));
         assertEquals("16203", addStringNumbers("12736", "3245", NumSys36.OCTAL));
         assertEquals("20343", addStringNumbers("10536", "6504", NumSys36.SEVEN));
         assertEquals("20443", addStringNumbers("10535", "5504", NumSys36.SIX));
@@ -66,6 +70,8 @@ public class AddStringNumbersVector {
 
 
     private static String addStringNumbers(String s1, String s2, NumSys36 numsys) {
+        s1 = s1.replaceFirst("^0*", "");
+        s2 = s2.replaceFirst("^0*", "");
         if (Math.min(s1.length(), s2.length()) == s2.length()) {
             String tmp = s1;
             s1 = s2;
