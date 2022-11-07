@@ -84,7 +84,7 @@ public class AddStringNumbersVector {
         for (int i = 0; i < s1Vector.size(); i++)
             s2Vector.set(i, s2Vector.get(i) + s1Vector.get(i));
         int nextOrderVal = 0;
-        for (int i = 0; i < s2Vector.size(); i++) { // s1.length() not to catch ConcurrentModException
+        for (int i = 0; i < s2Vector.size(); i++) {
             int currVal = s2Vector.get(i);
             nextOrderVal = currVal / numsys.label;
             s2Vector.set(i, currVal % numsys.label);
@@ -92,7 +92,6 @@ public class AddStringNumbersVector {
                 break;
             s2Vector.set(i + 1, s2Vector.get(i + 1) + nextOrderVal);
         }
-        int i = s2Vector.size();
         while (nextOrderVal != 0) {
             s2Vector.add(nextOrderVal % numsys.label);
             nextOrderVal = nextOrderVal / numsys.label;
