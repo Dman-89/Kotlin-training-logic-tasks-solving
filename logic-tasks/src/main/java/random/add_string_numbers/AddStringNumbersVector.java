@@ -66,6 +66,8 @@ public class AddStringNumbersVector {
         assertEquals("41223", addStringNumbers("31244", "4424", NumSys36.FIVE));
         assertEquals("11211", addStringNumbers("2120", "3031", NumSys36.FOUR));
         assertEquals("10010011", addStringNumbers("10100", "1111111", NumSys36.BINARY));
+        assertEquals("110000010111110", addStringNumbers("101000000111111", "1000001111111", NumSys36.BINARY));
+        assertEquals("10001111111111110", addStringNumbers("1111111111111111", "1111111111111", NumSys36.BINARY));
     }
 
 
@@ -97,12 +99,8 @@ public class AddStringNumbersVector {
             nextOrderVal = nextOrderVal / numsys.label;
         }
         Collections.reverse(s2Vector);
-        return s2Vector.stream().map( num -> {
-            if (mapInversed.get(num) != null)
-                return mapInversed.get(num);
-            else
-                return (char)(num + '0');
-        }).collect(Collector.of(
+        return s2Vector.stream().map( num -> mapInversed.get(num) != null ? mapInversed.get(num) : (char)(num + '0') )
+            .collect(Collector.of(
                 StringBuilder::new,
                 StringBuilder::append,
                 StringBuilder::append,
