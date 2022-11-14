@@ -1,4 +1,4 @@
-package codewars
+package codewars.string_incrementer
 
 import org.junit.jupiter.api.Assertions.assertEquals
 
